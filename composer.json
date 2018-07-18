@@ -1,0 +1,15 @@
+{
+	"type": "composer-plugin",
+	"name": "vortrixs/composer-scrutinizer-plugin",
+	"require": {
+		"composer-plugin-api": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Vortrixs\\": "src"
+		}
+	},
+	"extra": {
+		"class": "Vortrixs\\LibraryPlugin"
+	}
+}
