@@ -34,7 +34,7 @@ class Scrutinizer
 	 *
 	 * @return   array
 	 */
-	public function getNodeDependencies(RootPackageInterface $package, string $node) : array
+	public function getNodeDependencies(RootPackageInterface $package, string $node)
 	{
 		$extra = $package->getExtra();
 

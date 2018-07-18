@@ -86,6 +86,11 @@ class LibraryInstaller extends BaseLibraryInstaller
 			$this->scrutinizer->getNode()
 		);
 
+		if (false === $dependencies)
+		{
+			return true;
+		}
+
 		return in_array($package->getPrettyName(), $dependencies);
 	}
 }
