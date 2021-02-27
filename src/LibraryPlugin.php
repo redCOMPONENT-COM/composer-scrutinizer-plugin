@@ -13,26 +13,33 @@ use Composer\Plugin\PluginInterface;
  */
 class LibraryPlugin implements PluginInterface
 {
-	/**
-	 * Entry point for composer
-	 *
-	 * @param   Composer      $composer   [description]
-	 * @param   IOInterface   $io         [description]
-	 *
-	 * @return   boolean
-	 */
-	public function activate( Composer $composer, IOInterface $io )
-	{
-		$scrutinizer = new Scrutinizer;
+    /**
+     * Entry point for composer
+     *
+     * @param   Composer      $composer   [description]
+     * @param   IOInterface   $io         [description]
+     *
+     * @return   boolean
+     */
+    public function activate(Composer $composer, IOInterface $io)
+    {
+        $scrutinizer = new Scrutinizer();
 
-		if (!$scrutinizer->isScrutinizer())
-		{
-			return false;
-		}
+        if (!$scrutinizer->isScrutinizer()) {
+            return false;
+        }
 
-		$installer = new LibraryInstaller($io, $composer, $scrutinizer);
-		$composer->getInstallationManager()->addInstaller($installer);
+        $installer = new LibraryInstaller($io, $composer, $scrutinizer);
+        $composer->getInstallationManager()->addInstaller($installer);
 
-		return true;
-	}
+        return true;
+    }
+
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+    }
 }
